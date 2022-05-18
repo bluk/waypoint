@@ -1,0 +1,24 @@
+[package]
+name = "waypoint"
+version = "0.0.1"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Bryant Luk <code@bryantluk.com>"]
+description = "A demo app"
+repository = "https://github.com/bluk/waypoint"
+readme = "README.md"
+include = [
+  "src/**/*.rs",
+  "Cargo.toml",
+  "README.md",
+  "LICENSE-APACHE",
+  "LICENSE-MIT",
+]
+
+[dependencies]
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+clap = { version = "3.1.6", features = ["env"] }
+
+mio = {version = "0.8", features = ["os-poll", "net"] }
