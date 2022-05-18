@@ -1,0 +1,24 @@
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+  RUST_LOG = "waypoint=trace"
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+
+[build]
+  dockerfile = "deployments/docker/Dockerfile"
+
+[build.args]
+  PORT = "6881"
+  IP_ADDR = "fly-global-services"
+
+[[services]]
+  internal_port = 6881
+  protocol = "udp"
+
+  [[services.ports]]
+    port = 6881
